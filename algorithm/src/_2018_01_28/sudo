@@ -1,0 +1,31 @@
+/*
+// 미로 찾기(재귀)
+
+// 벽이 있는지, 이미 방문한곳을 체크한 곳인지 확인하는 방법
+boolean findPath(x,y){
+	if(x,y) is the exit
+		return true;
+	else
+		mark (x,y) as a visited cell;
+		for eachc neighbouring cell (x',y') of (x,y) do
+		if(x',y') is on the pathway and not visited // 벽(pathway)인지 아직 방문하지 않은 곳(not visited)인지 확인
+		if findPath(x',y')
+			return true;
+		return false;
+}
+
+// 벽과 방문한 곳이면 바로 return을 false 하는 법
+
+boolean findpaht(x,y){
+	if (x,y) is either on the wall or a visited cell
+		return false;
+	else if (x,y) is the exit
+		return true;
+	else
+		mark (x,y) as a visited cell;
+		for each neighbouring cell (x',y') of (x,y) do
+		if findpath(x',y')
+			return true;
+	return false;
+}
+*/
