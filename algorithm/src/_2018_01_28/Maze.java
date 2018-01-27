@@ -21,7 +21,7 @@ public class Maze {
 	private static final int PATH_COLOUR = 3; // green
 	
 	public static boolean findMazePath(int x, int y){
-		if (x<0 || y<0 || x>=N) // 유효한 좌표 범위 확인
+		if (x<0 || y<0 || x>=N || y>=N) // 유효한 좌표 범위 확인
 			return false;
 		else if (maze[x][y] != PATHWAY_COLOUR)
 			return false;
