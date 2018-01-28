@@ -1,4 +1,5 @@
 /*
+/*Recursion sudo*/
 // 미로 찾기(재귀)
 
 // 벽이 있는지, 이미 방문한곳을 체크한 곳인지 확인하는 방법
@@ -7,7 +8,7 @@ boolean findPath(x,y){
 		return true;
 	else
 		mark (x,y) as a visited cell;
-		for eachc neighbouring cell (x',y') of (x,y) do
+		for each neighboring cell (x',y') of (x,y) do
 		if(x',y') is on the pathway and not visited // 벽(pathway)인지 아직 방문하지 않은 곳(not visited)인지 확인
 		if findPath(x',y')
 			return true;
@@ -16,16 +17,102 @@ boolean findPath(x,y){
 
 // 벽과 방문한 곳이면 바로 return을 false 하는 법
 
-boolean findpaht(x,y){
+boolean findpath(x,y){
 	if (x,y) is either on the wall or a visited cell
 		return false;
 	else if (x,y) is the exit
 		return true;
 	else
 		mark (x,y) as a visited cell;
-		for each neighbouring cell (x',y') of (x,y) do
+		for each neighboring cell (x',y') of (x,y) do
 		if findpath(x',y')
 			return true;
 	return false;
 }
+
+// N_Queens_Problem
+// counting cells in a Blob
+Algorithm for contCells(x,y)
+if the pixel (x,y) is outside the grid
+	the result is 0;
+else if pixel (x,y) is not an image pixel or already counted
+ 	the result is 0;
+ else
+ 	set the color of the pixel (x,y) to a red color;
+ 	the result is 1 plus the number of cells in each piece of
+ 		the blob that includes a nearest neighbor;
+ 		
+ // N-Queens Problem(하나의 행 중 한개만 놓여야히며 근처 2칸까지 영향을 끼치면 안됨)
+ // Backtracking을 사용함, "상태공간트리"를 '깊이 우선 방식'으로 탐색함.
+ return-type queens( arguments)
+ {
+ 	if non-promising
+  		report failure and return;
+  	else if success
+  		report answer and return;
+  	else
+  		visit children recursively;
+  }
+  
+  // Design Recursion
+  // 1.
+  int [] cols = new int [N+1];
+	return-type queens(int level)
+	{
+		if non-promising
+			report failure and return;
+		else if success
+			report answer and return;
+		else
+			visit children recursively;
+	}
+  // 2. return type true or false
+	int [] cols = new int[N+1];
+	boolean queens (int level)
+	{
+		if non-promising
+			report failure and return;
+		else if success;
+			report answer and return;
+		else
+			visit children recursively;
+	}
+  // 3.
+  int [] cols = new int [N+1];
+  boolean queens(int level)
+  {
+  	if (!promising(level))
+  		return false;
+  	else if (level == N)
+  		return true;
+  	for ( int i = 1; i <= N; i++) {
+  		cols[level+1] = i;
+  		if (queens(levels+1))
+  			return true;
+  	}
+  	return false;
+  	
+  	// 4. 같은 열, 같은 대각선 충돌 확인
+  	// 대각선 구하는 공식 : level-i = |cols[level]-cols[i]|
+  	boolean promising(int level)
+  	{
+  		for (int i = 1; i < level; i++){
+  			if (cols[i] == cols[level])
+  				return false;
+  			else if on the same diagonal
+  				return false;
+  		}
+  		return true;
+  	}
+  	
+  	// Powerset(멱집합( : 임의의 집합 data의 모든 부분집합을 출력
+  	// Mission : S의 멱집합을 구한 후 각각의 집합 P를 합집합하여라
+  	// 상태 공간트리를 이용해서 이해를 요구
+  	powerSet(P,S)
+  	if S is an empty set
+  		print P;
+  	else
+  		let t be the first element of S;
+  		powerSet(P, S-{t});
+  		powerSet(P U {t}, S-{t});
 */
